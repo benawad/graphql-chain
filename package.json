@@ -1,12 +1,21 @@
 {
   "name": "graphql-chain",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "typescript": {
+    "definition": "lib/index.d.ts"
+  },
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "semantic-release": "^15.5.1",
     "ts-node": "^6.1.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "typescript": "^2.9.1"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "semantic-release": "semantic-release --ci false"
   }
 }
