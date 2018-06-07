@@ -8,14 +8,19 @@
   "version": "0.0.0-development",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "jest": "^23.1.0",
     "semantic-release": "^15.5.1",
+    "travis-deploy-once": "^5.0.0",
+    "ts-jest": "^22.4.6",
     "ts-node": "^6.1.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
-    "typescript": "^2.9.1",
-    "travis-deploy-once": "^5.0.0"
+    "typescript": "^2.9.1"
   },
   "scripts": {
+    "prepublish": "npm run test",
+    "test": "npm run build && jest",
     "build": "rm -rf lib && tsc",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
@@ -23,5 +28,19 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/benawad/graphql-chain.git"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
