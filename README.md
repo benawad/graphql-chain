@@ -2,6 +2,12 @@
 
 Create GraphQL middleware that resembles how Express middleware works.
 
+## Install
+
+```
+yarn add graphql-chain
+```
+
 ## How to use
 
 ### Step 1
