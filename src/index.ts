@@ -1,5 +1,3 @@
-export type Resolver = (parent: any, args: any, context: any, info: any) => any;
-
 export type Next = () => any;
 
 export type MiddlewareResolver = (
@@ -10,8 +8,13 @@ export type MiddlewareResolver = (
   info: any
 ) => any;
 
-export const chain = (middlewares: MiddlewareResolver[]) => (
-  resolver: Resolver
+export const chain = (middlewares: MiddlewareResolver[]) => <
+  Parent = any,
+  Args = any,
+  Context = any,
+  Info = any
+>(
+  resolver: (parent: Parent, args: Args, context: Context, info: Info) => any
 ) => (parent: any, args: any, context: any, info: any) => {
   const newMiddlewares = [...middlewares];
   const next: Next = () => {

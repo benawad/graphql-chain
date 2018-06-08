@@ -51,7 +51,9 @@ const helloMiddleware = chain([
 
 const resolvers: IResolvers = {
   Query: {
-    hello: helloMiddleware((_, { name }) => `Hello ${name || "World"}`)
+    hello: helloMiddleware<any, { name: string }>(
+      (_, { name }) => `Hello ${name || "World"}`
+    )
   }
 };
 
